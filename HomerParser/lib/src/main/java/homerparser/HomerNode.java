@@ -20,6 +20,8 @@ public class HomerNode {
 	List<HomerConnection> connections;
 	@SerializedName("_elements")
 	List<HomerSubElement> subElements;
+	@SerializedName("_header")
+	HomerNodeHeading heading;
 	
 	boolean hasNextNode() {
 		return connections.size() != 0;
@@ -31,6 +33,8 @@ public class HomerNode {
 	
 	public String toString(){
 		String str = type + ": " + System.lineSeparator();
+		if(heading != null)
+			str += heading.textContent.get(0).text + System.lineSeparator();
 		for(HomerSubElement ele : subElements) {
 			str += ele.textContent.get(0).text + System.lineSeparator();
 		}

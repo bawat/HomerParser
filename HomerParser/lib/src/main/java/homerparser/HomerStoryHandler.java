@@ -21,12 +21,9 @@ import com.google.gson.JsonParser;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class Library {
-    public boolean someLibraryMethod() {
-        return true;
-    }
+public class HomerStoryHandler {
 
-	public void parse(String json) {
+	public static HomerNode parse(String json) {
 		Gson gson = new Gson();
 		
 		JsonObject jsonObject = JsonParser.parseString(json).getAsJsonObject();
@@ -37,16 +34,10 @@ public class Library {
     	
     	HomerNode startNode = homerNodes.stream().filter(node -> node.isStartNode()).findAny().orElse(null);
     	
-
-		
-		HomerNode currentNode = startNode;
-    	for(int i = 0; i < 4; i++) {
-    		System.out.println(currentNode.toString());
-    		currentNode = currentNode.getNextNode();
-    	}
+    	return startNode;
 	}
 	
-	public String downloadHomerJSON(String username, String password, String projectURL, long timeout) throws InterruptedException {
+	public static String downloadHomerJSON(String username, String password, String projectURL, long timeout) throws InterruptedException {
 		String loginUrl = "https://homer.open-lab.com/login";
 		String jsToRun = "return JSON.stringify(Homer.project)";
 		

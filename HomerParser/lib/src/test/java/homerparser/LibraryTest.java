@@ -22,16 +22,12 @@ import java.util.stream.Stream;
 
 class LibraryTest {
     @Test void examineTestCase() throws URISyntaxException {
-        Library lib = new Library();
-    	
-    	String json = loadTestFile();
-    	lib.parse(json);
+        HomerStoryHandler.parse(loadTestFile());
     }
     
     @Test void testDownloadJSON() throws InterruptedException {
-    	Library lib = new Library();
     	String homerPassword = System.getenv("HOMER_PASSWORD");
-    	String result = lib.downloadHomerJSON("Bawat",homerPassword,"https://homer.open-lab.com/?project_uid=PRJ-a5731f74-35c4-4c3a-a7b1-1678665632429", 4000l);
+    	String result = HomerStoryHandler.downloadHomerJSON("Bawat",homerPassword,"https://homer.open-lab.com/?project_uid=PRJ-a5731f74-35c4-4c3a-a7b1-1678665632429", 4000l);
     	assertTrue(result != null && !result.isEmpty());
     }
     
