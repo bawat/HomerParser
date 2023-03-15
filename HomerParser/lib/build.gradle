@@ -38,6 +38,9 @@ dependencies {
     
    implementation "io.github.bonigarcia:webdrivermanager:3.8.1"
    implementation 'org.seleniumhq.selenium:selenium-java:3.14.0'
+	
+	implementation 'org.projectlombok:lombok:1.18.24'
+	annotationProcessor 'org.projectlombok:lombok:1.18.24'
 }
 
 tasks.named('test') {

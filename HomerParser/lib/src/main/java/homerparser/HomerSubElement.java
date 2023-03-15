@@ -4,12 +4,14 @@ import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 
+import lombok.Getter;
+
 public class HomerSubElement {
-	@SerializedName("_id")
+	@SerializedName("_id") @Getter
 	String id;
-	@SerializedName("_type")
+	@SerializedName("_type") @Getter
 	String type;
 
-	@SerializedName("_localizedContents")
+	@SerializedName("_localizedContents") @Getter
 	List<LocalizedTextContent> textContent;
 }

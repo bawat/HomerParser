@@ -4,12 +4,14 @@ import java.util.Optional;
 
 import com.google.gson.annotations.SerializedName;
 
+import lombok.Getter;
+
 public class HomerConnection {
-	@SerializedName("_id")
+	@SerializedName("_id") @Getter
 	String id;
-	@SerializedName("_from")
+	@SerializedName("_from") @Getter
 	String from;
-	@SerializedName("_to")
+	@SerializedName("_to") @Getter
 	String to;
 	
 	public HomerNode to() {
