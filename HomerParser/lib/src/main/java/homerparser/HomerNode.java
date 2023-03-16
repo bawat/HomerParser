@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
+import java.util.stream.Stream;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -34,9 +35,14 @@ public class HomerNode {
 	public boolean hasNextNode() {
 		return connections.size() != 0;
 	}
-	public HomerNode getNextNode() {
+	public Optional<HomerNode> getRandomNextNode() {
+		if(connections.isEmpty()) return Optional.empty();
+		
 		HomerConnection connection = connections.get(new Random().nextInt(connections.size()));
-		return connection.to();
+		return Optional.of(connection.to());
+	}
+	public Stream<HomerNode> getNextNodes() {
+		return connections.stream().map(con -> con.to());
 	}
 	
 	public String toString(){
